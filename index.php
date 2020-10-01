@@ -45,7 +45,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])){
 			}
 		}
 		function do_ajax(){
-			if (window.XMLHttpRequest) return new XMLHttpRequest();
+			if (window.XMLHttpRequest) return new XMLHttpRequest(); // kode ini untuk request menggunakan AJAX
 			if (window.ActiveXObject) return new ActiveXObject("Microsoft.XMLHTTP");
 			return null;
 		}
@@ -53,7 +53,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])){
 			var n=ids.length;
 			var w=(n==2?wil[0]:(n==5?wil[1]:wil[2]));
 			var data;
-			if (my_ajax.readyState==4){
+			if (my_ajax.readyState==4){ // 4 adalah kode AJAX ketika AJAX sudah siap digunakan
 				data=my_ajax.responseText;
 				document.getElementById(w).innerHTML = data.length>=0 ? data:"<option selected>Pilih Kota/Kab</option>";
 				<?php foreach($wil as $k=>$w):?>
